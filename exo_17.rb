@@ -49,14 +49,21 @@ user_number = gets.chomp.to_i
 
 
     def recommencer()
-        #ici manque uniquement Y ou N comme entrer 
-        #d'autre entrer casserons le code 
             puts "> voulez vous recomencer ?"
             puts "> Taper Y ou N "
             # on recupere oui ou non en maj
             input = gets.chomp.to_s.upcase
-            condition(input)
+            if input == "YES" || input == "Y"
+                input = "Y"
+                condition(input)
+            elsif input == "NO" || input == "N"
+                input = "N"
+                condition(input)
+            else
+                recommencer()
+            end
     end
+
 #on appelle la fonction Getinput pour demarer l'execution du code
 Getinput(user_number)
 
